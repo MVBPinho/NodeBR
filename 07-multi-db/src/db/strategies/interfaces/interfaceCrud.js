@@ -23,6 +23,10 @@ class ICrud {
     delete(id) {
         throw new NotImplementedException()
     }
+
+    isConnected() {
+        throw new NotImplementedException()
+    }
 }
 
 //Boas praticas para ser visualizado pelos outros projetos
