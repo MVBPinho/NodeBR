@@ -1,0 +1,3 @@
+Tive problema para executar o Docker no UBUNTU, foi necessário utilizar a 
+seguinte linha de comando: 
+docker run -d -p 3000:3000 mongoclient/mongoclient e abrir http://192.168.99.100:3000
