@@ -10,10 +10,24 @@ class Postgres extends ICrud {
         this._herois = null
     }
 
-     create(item) {
+    create(item) {
         return this._herois.create(item)
     }
+
+    async read(item = {}) {
+        return this._herois.findAll({ where: item , raw: true })
+    }
+
+    async update(id, item) {
+        //console.log('id', id)
+        //console.log('item', item)
+        return this._herois.update(item, {where:{ id: id}})
+    }
     
+    async delete(id) {
+        const query = id ? { id } : {}
+        return this._herois.destroy({where: query})
+    }
 
     //Foi criado uma função para conectar com o banco de dados 
     async connect() {
