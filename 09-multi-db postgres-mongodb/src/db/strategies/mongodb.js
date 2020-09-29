@@ -61,6 +61,13 @@ class MongoDB extends ICrud {
     create(item) {
         return this._herois.create(item)
     }
+
+    read(item, skip=0, limit=10) {
+        //skip -> se o skip foi 10 ele vai ignorar os 10 primeiros resultados
+        //skip-> se eu der skip em 2 em uma lista de 10 itens, eu trago os 8 restantes
+        //skip e limit servem para paginar nossos itens
+        return this._herois.find(item).skip(skip).limit(limit)
+    }
 }
 
 module.exports = MongoDB
