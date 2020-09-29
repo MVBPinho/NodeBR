@@ -4,3 +4,6 @@ docker run -d -p 3000:3000 mongoclient/mongoclient e abrir http://192.168.99.100
 
 rm -rf node_modules
 quando o node da erro, para excluir o node modules e restaurar ela
+
+{_id: ObjectId("5f72a1d88e3277432b37edcf")} 
+exemplo manual de pesquisa no post de um id

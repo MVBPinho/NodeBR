@@ -68,6 +68,10 @@ class MongoDB extends ICrud {
         //skip e limit servem para paginar nossos itens
         return this._herois.find(item).skip(skip).limit(limit)
     }
+    update(id, item){
+       // console.log('id', id)
+        return this._herois.updateOne({ _id: id}, {$set: item })
+    }
 }
 
 module.exports = MongoDB
