@@ -1,0 +1,2 @@
+*Esse comando vai remover todos os dockers ativos e inativos*
+sudo docker rm $(docker ps -aq)
