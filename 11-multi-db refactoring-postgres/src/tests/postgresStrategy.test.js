@@ -27,8 +27,8 @@ describe('Postgres Strategy', function () {
         await context.create(MOCK_HEROI_ATUALIZAR)
     })
     it('PostgresSQL Connection', async function () {
-        const {dataValues: {nome, poder}}  = await context.isConnected()
-        assert.strictEqual({nome, poder}, true)
+        const result  = await context.isConnected()
+        assert.strictEqual(result, true)
     })
     //it.only() vai ser executado apenas o cadastrar
     it('cadastrar', async function () {
