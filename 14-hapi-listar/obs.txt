@@ -1,0 +1,3 @@
+no padrão http queryString é uma string na chamada da requisição da api
+skip=0&limit=10&nome=flash
+http://localhost:5000/herois?skip=0&limit=10&nome=flash
