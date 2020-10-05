@@ -19,6 +19,8 @@ class HeroRoutes extends BaseRoute {
                         skip,
                         limit,
                         nome } = request.query
+
+                        console.log('limit', limit)
                     let query = {}
                     if (nome) {
                         query.nome = nome

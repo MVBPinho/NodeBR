@@ -1,2 +1,36 @@
 *Esse comando vai remover todos os dockers ativos e inativos*
 sudo docker rm $(docker ps -aq)
+
+RESTFUL API
+- STATELESS!
+- DADOS DE CLIENTES SÃO ARMAZENADOS EM SEUS RESPECTIVOS NAVEGADORES
+- EM GERAL RETORNAM JSON
+
+TRABALHA COM MÉTODOS HTTP
+- GET - OBTÉM DADOS DE UM RECURSO
+- POST - CRIAR ITEM DE UM RECURSO
+- PUT - ATUALIZAR UM RECURSO COM UMA NOVA REPRESENTAÇÃO
+- PATCH - ATUALIZAR UM RECURSO PARCIALMENTE
+- DELETE - REMOVER EM RECURSO
+
+PADRÕES DE URL
+- GET - /heroes
+- POST - /heroes
+- PUT - /heroes/:id -> body: {name, date, power}
+- PATCH - / heroes/:id -> body: {name}
+- DELETE - /heroes/:id
+
+get -> quero listar herois
+post -> quero cadastrar, passo no corpo da requisição
+put -> se eu quiser atualizar por headles, passo no body da r
+equisição todos os parametros que eu quero alterar
+put -> se eu quiser alterar parcialmente, não sou obrigado a alterar tudo
+delete -> serve para remover
+
+Se eu quiser obter o detalhe do heroi, listas, lugares especificos
+Consigo pesquisar até sub recursos
+- GET - /heroes/:id
+- GET - /heroes/:id/headquarters
+- GET - /heroes/:id/headquarters/:id
+
+Padrão Rest API é baseado em nomeclaturas, sucesso e erros

@@ -32,7 +32,7 @@ describe('Suite de testes da API Heroes', function () {
         assert.ok(dados.length === TAMANHO_LIMITE)
     })
     it('listar /herois - deve retornar um erro com limit incorreto', async () => {
-        const TAMANHO_LIMITE = 'AEEEE'
+        const TAMANHO_LIMITE = 'AEEE'
         const result = await app.inject({
             method: 'GET',
             url: `/herois?skip=0&limit=${TAMANHO_LIMITE}`
