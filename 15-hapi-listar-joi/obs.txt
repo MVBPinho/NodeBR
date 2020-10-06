@@ -1,1 +1,4 @@
 npm i joi
+
+foi necessário realizar um downgrade na versão do happi
+npm i @hapi/joi@15.1.1 para corrigir um erro que estava apresentando no joi
