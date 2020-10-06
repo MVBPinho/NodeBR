@@ -63,7 +63,7 @@ describe('Suite de testes da API Heroes', function () {
         assert.deepStrictEqual(statusCode, 200)
         assert.ok(dados[0].nome === NAME)
     })
-    it.only('cadastrar POST - /herois', async () => {
+    it('cadastrar POST - /herois', async () => {
         const result = await app.inject({
             method: 'POST',
             url: '/herois',
