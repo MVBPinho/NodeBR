@@ -4,7 +4,6 @@ const Hapi = require('hapi')
 const Context = require('./db/strategies/base/contextStrategy')
 const MongoDb = require('./db/strategies/mongodb/mongodb')
 const HeroiSchema = require('./db/strategies/mongodb/schemas/heroisSchema')
-const HeroRoutes = require('./routes/heroRoutes')
 const HeroRoute = require('./routes/heroRoutes')
 
 const app = new Hapi.Server({

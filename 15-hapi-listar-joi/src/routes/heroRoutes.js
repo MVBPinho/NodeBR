@@ -2,7 +2,7 @@
 // antes de qualquer coisa para depois setar
 
 const BaseRoute = require('./base/baseRoute')
-const Joi = require('joi')
+const Joi = require ('@hapi/joi')
 class HeroRoutes extends BaseRoute {
     constructor(db) {
         super()
@@ -11,20 +11,8 @@ class HeroRoutes extends BaseRoute {
 
     list() {
         return {
-            path: '/herois',
             method: 'GET',
-            config: {
-                validate: {
-                    failAction: (request, headers, erro) => {
-                        throw erro;
-                    },
-                    query: {
-                        skip: Joi.number().integer().default(0),
-                        limit: Joi.number().integer().default(10),
-                        nome: Joi.string().min(3).max(100)
-                    }
-                }
-            },
+            path: '/herois',
             handler: (request, headers) => {
                 try {
                     const {
@@ -43,7 +31,19 @@ class HeroRoutes extends BaseRoute {
                     console.log('DEU RUIM', error)
                     return "Erro interno no servidor"
                 }
-            }
+            },
+            config: {
+                validate: {
+                    failAction: (request, headers, erro) => {
+                        throw erro;
+                    },
+                    query: {
+                        skip: Joi.number().integer().default(0),
+                        limit: Joi.number().integer().default(10),
+                        nome: Joi.string().min(3).max(100)
+                    }
+                }
+            },
         }
     }
 }
