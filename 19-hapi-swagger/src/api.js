@@ -5,38 +5,47 @@ const MongoDb = require('./db/strategies/mongodb/mongodb')
 const HeroiSchema = require('./db/strategies/mongodb/schemas/heroisSchema')
 const HeroRoute = require('./routes/heroRoutes')
 
-const Hapi = require('@hapi/hapi')
-const Inert = require('@hapi/inert')
-const Vision = require('@hapi/vision')
-const HapiSwagger = require('hapi-swagger')
-
-const app = new Hapi.Server({
-    port: 5000
-})
-
-function mapRoutes(instance, methods) {
-    return methods.map(method => instance[method]())
-}
+const Hapi = require('@hapi/hapi');
+const Inert = require('@hapi/inert');
+const Vision = require('@hapi/vision');
+const HapiSwagger = require('hapi-swagger');
 
 async function main() {
+    
+    const app = await new Hapi.Server({
+        host: 'localhost',
+        port: 5001
+    })
+
+    function mapRoutes(instance, methods) {
+        return methods.map(method => instance[method]())
+    }
+
     const connection = MongoDb.connect()
     const context = new Context(new MongoDb(connection, HeroiSchema))
 
-    /*const swaggerOptions = {
+    const swaggerOptions = {
         info: {
-            title: 'API Herois - #CursoNodeBR',
+            title: 'Test API Documentation',
             version: 'v1.0'
         },
-        lang: 'pt'
-    }
+    };
+
     await app.register([
-        Vision,
         Inert,
+        Vision,
         {
-            puglin: HapiSwagger,
+            plugin: HapiSwagger,
             options: swaggerOptions
         }
-    ])*/
+    ]);
+
+    try {
+        await app.start();
+        console.log('Server running at:', app.info.uri);
+    } catch (err) {
+        console.log(err);
+    }
 
     app.route([
         ...mapRoutes(new HeroRoute(context), HeroRoute.methods())
@@ -47,5 +56,6 @@ async function main() {
 
     return app
 }
+
 
 module.exports = main()

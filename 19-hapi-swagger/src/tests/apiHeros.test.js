@@ -10,7 +10,7 @@ const MOCK_HEROI_INICIAL = {
     poder: 'A mira'
 }
 let MOCK_ID = ''
-describe.only('Suite de testes da API Heroes', function () {
+describe('Suite de testes da API Heroes', function () {
     this.beforeAll(async () => {
         app = await api
         const result = await app.inject({
@@ -67,7 +67,7 @@ describe.only('Suite de testes da API Heroes', function () {
         assert.deepStrictEqual(result.payload, JSON.stringify(errorResult))
     })
     it('listar /herois - deve filtar um item', async () => {
-        const NAME = 'Homem Aranha-1601347568729'
+        const NAME = MOCK_HEROI_INICIAL.nome
         const result = await app.inject({
             method: 'GET',
             url: `/herois?skip=0&limit=1000&nome=${NAME}`
