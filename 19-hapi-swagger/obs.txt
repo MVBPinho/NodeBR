@@ -1,3 +1,5 @@
-npm i boom
+Foi necessário consultar a documentação no site 
+https://www.npmjs.com/package/hapi-swagger 
+para conseguir utilizar a API HapiSwagger.
 
-vai ajudar a retornar a messagens customizadas dependendo da requisicao
+As dependencias do curso estavam desatualizadas em relação a 2020.
