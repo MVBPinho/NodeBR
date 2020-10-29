@@ -1,0 +1,13 @@
+O PADRÃO JSON WEB TOKEN
+
+
+* API envia um Token para acesso aos serviços
+* Cliente envia este token via headers
+* A cada request este token é validado
+
+https://jwt.io/
+jwt -> json web token
+decodificar informações
+vermelho -> tipo do algoritmo, como que ele vai trabalhar
+roxo -> dado
+ciano -> como a autenticaçaõ é feita + chave secreta
